@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:layout_height="wrap_content"
+            android:layout_weight="3"
+            android:text="@string/music"
+            android:textSize="35sp"
+            android:gravity="center"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/btn_music_sure"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_gravity="center_vertical"
+            android:text="@string/btn_sure" />
+    </LinearLayout>
+
+    <ListView
+        android:id="@+id/lv_music"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+</LinearLayout>
