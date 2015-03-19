@@ -1,5 +1,7 @@
 package com.example.picturereader.util;
 
+import java.util.List;
+
 import com.example.picturereader.AppApplication;
 import com.example.picturereader.entity.ImageFolder;
 
@@ -11,6 +13,8 @@ import android.view.View.OnTouchListener;
 public class Singleton {
 	
 	private ImageFolder mImageFolder;
+	
+	private List<String> musicList;
 	
 	private AppApplication app;
 	
@@ -33,6 +37,16 @@ public class Singleton {
 		this.mImageFolder = mImageFolder;
 	}
 	
+	public List<String> getMusicList() {
+		return musicList;
+	}
+
+	public void setMusicList(List<String> musicList) {
+		this.musicList = musicList;
+	}
+
+
+
 	private OnTouchListener onTouchListener;
 	public OnTouchListener getTouchLIstener(){
 		if(onTouchListener == null){

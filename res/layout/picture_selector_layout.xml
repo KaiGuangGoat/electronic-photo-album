@@ -21,5 +21,32 @@
         android:numColumns="3"
         />
     </LinearLayout>
+    
+    <RelativeLayout 
+        android:layout_width="fill_parent"
+        android:layout_height="60dip"
+        android:background="@android:color/darker_gray"
+        >
+        
+        <Button 
+            android:id="@+id/bt_all_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/all_picture"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="5dip"
+            android:layout_centerVertical="true"
+            />
+        
+        <Button 
+            android:id="@+id/bt_select_sure"
+            android:text="@string/btn_sure"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="5dip"
+            android:layout_centerVertical="true"
+            />
+    </RelativeLayout>
 
 </LinearLayout>

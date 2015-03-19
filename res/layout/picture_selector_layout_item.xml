@@ -10,4 +10,11 @@
         android:layout_height="fill_parent"
         android:src="@drawable/picture_default"
         />
+    <CheckBox 
+        android:id="@+id/cb_select_picture_item"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        />
 </RelativeLayout>

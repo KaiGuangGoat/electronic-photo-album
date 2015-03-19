@@ -3,15 +3,20 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="horizontal" >
-    <TextView 
+
+    <TextView
         android:id="@+id/tv_music_name"
+        android:layout_width="0dip"
         android:layout_height="wrap_content"
-        android:layout_weight="5"
-        android:text="music"
-        />
-	<CheckBox 
-	    android:id="@+id/cb_music_select"
-	    android:layout_height="wrap_content"
-        android:layout_weight="1"
-	    />
+        android:gravity="center_horizontal"
+        android:layout_weight="5" />
+
+    <CheckBox
+        android:id="@+id/cb_music_select"
+        android:layout_width="0dip"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:background="@android:color/transparent"
+        android:layout_weight="1" />
+
 </LinearLayout>

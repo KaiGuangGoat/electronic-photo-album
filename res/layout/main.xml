@@ -2,16 +2,16 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#eeeeeeee"
     android:orientation="vertical" >
-	<TextView 
-	    android:text="@string/picture_photo"
-	    android:layout_width="match_parent"
-	    android:layout_height="wrap_content"
-	    android:gravity="center_horizontal"
-	    android:textSize="35sp"
-	    android:textStyle="bold"
-	    />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:text="@string/picture_photo"
+        android:textSize="35sp"
+        android:textStyle="bold" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -19,33 +19,39 @@
 
         <Button
             android:id="@+id/btn_add_picture"
+            android:layout_width="0dip"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="@string/btn_add_picture" />
 
         <Button
             android:id="@+id/btn_add_music"
+            android:layout_width="0dip"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="@string/btn_add_music" />
     </LinearLayout>
 
     <Button
-        android:id="@+id/btn_merger"
+        android:id="@+id/btn_merger_video"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/btn_merger" />
-    
-    <GridView 
+
+    <GridView
         android:id="@+id/gv_picture"
         android:layout_width="match_parent"
+        android:layout_height="0dip"
         android:layout_weight="3"
+        android:background="#eeeeeeee"
+        android:horizontalSpacing="5dip"
         android:numColumns="3"
-        />
-    <ListView 
+        android:verticalSpacing="5dip" />
+
+    <ListView
         android:id="@+id/lv_music"
         android:layout_width="match_parent"
-        android:layout_weight="1"
-        />
+        android:layout_height="0dip"
+        android:layout_weight="1" />
 
 </LinearLayout>

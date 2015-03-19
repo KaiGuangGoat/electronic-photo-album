@@ -7,21 +7,25 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="#eeeeeeee"
         android:orientation="horizontal" >
 
         <TextView
+            android:layout_width="0dip"
             android:layout_height="wrap_content"
             android:layout_weight="3"
+            android:gravity="center"
             android:text="@string/music"
             android:textSize="35sp"
-            android:gravity="center"
             android:textStyle="bold" />
 
         <Button
             android:id="@+id/btn_music_sure"
+            android:layout_width="0dip"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:layout_gravity="center_vertical"
+            android:layout_weight="1"
+            android:onClick="sure"
             android:text="@string/btn_sure" />
     </LinearLayout>
 

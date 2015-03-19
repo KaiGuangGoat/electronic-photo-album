@@ -13,18 +13,17 @@ import android.view.View.OnClickListener;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-public class MainPictureSelectorAdapter extends MyBaseAdapter {
+public class PictureSelectorMoreAdapter extends MyBaseAdapter {
 	
-	private MainPictureSelectorListener listener;
+	private PictureSelectorMoreListener listener;
 
-	public MainPictureSelectorAdapter(List<FolderPath> filePaths, Context context) {
+	public PictureSelectorMoreAdapter(List<FolderPath> filePaths, Context context) {
 		super(filePaths, context);
 	}
 
 	@Override
 	protected View getConvertView() {
-		// TODO Auto-generated method stub
-		return inflater.inflate(R.layout.activity_main_selector_item, null);
+		return inflater.inflate(R.layout.selector_more_pic_item, null);
 	}
 
 	@Override
@@ -39,7 +38,7 @@ public class MainPictureSelectorAdapter extends MyBaseAdapter {
 	protected void setContentView(int position, BaseViewHolder baseViewHolder) {
 		ViewHolder viewHolder = (ViewHolder) baseViewHolder;
 		FolderPath folder = (FolderPath) dataList.get(position);
-		viewHolder.textView.setText(new File(folder.getParentPath()).getAbsolutePath());
+		viewHolder.textView.setText(new File(folder.getParentPath()).getName());
 		ImageLoader.getInstance().addTask(folder.getFirstPath(), viewHolder.imageView);
 		final String folderPath = folder.getParentPath();
 		viewHolder.imageView.setOnClickListener(new OnClickListener() {
@@ -67,11 +66,11 @@ public class MainPictureSelectorAdapter extends MyBaseAdapter {
 		TextView textView;
 	}
 	
-	public void setListener(MainPictureSelectorListener listener){
+	public void setListener(PictureSelectorMoreListener listener){
 		this.listener = listener;
 	}
 
-	public interface MainPictureSelectorListener{
+	public interface PictureSelectorMoreListener{
 		public void onSelected(String folderPath);
 	}
 

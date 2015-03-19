@@ -1,6 +1,6 @@
 package com.example.picturereader;
 
-import com.example.picturereader.ui.MainActivity;
+import com.example.picturereader.ui.MainLayoutActivity;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -51,7 +51,7 @@ public class SplashActivity extends Activity{
 	}
 	
 	private void gotoMainActivity(){
-		Intent intent = new Intent(this,MainActivity.class);
+		Intent intent = new Intent(this,MainLayoutActivity.class);
 		startActivity(intent);
 	}
 
