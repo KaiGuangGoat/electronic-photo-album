@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.example.picturereader.AppApplication;
 import com.example.picturereader.entity.ImageFolder;
+import com.example.picturereader.entity.MusicEntity;
 
 import android.view.MotionEvent;
 import android.view.View;
@@ -14,7 +15,7 @@ public class Singleton {
 	
 	private ImageFolder mImageFolder;
 	
-	private List<String> musicList;
+	private List<MusicEntity> musicList;
 	
 	private AppApplication app;
 	
@@ -37,11 +38,11 @@ public class Singleton {
 		this.mImageFolder = mImageFolder;
 	}
 	
-	public List<String> getMusicList() {
+	public List<MusicEntity> getMusicList() {
 		return musicList;
 	}
 
-	public void setMusicList(List<String> musicList) {
+	public void setMusicList(List<MusicEntity> musicList) {
 		this.musicList = musicList;
 	}
 

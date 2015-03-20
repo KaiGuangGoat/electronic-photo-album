@@ -9,11 +9,22 @@
     
     <string name="btn_add_music">添加音乐</string>
     <string name="btn_add_picture">添加图片</string>
+    <string name="btn_cancle">取消</string>
+    <string name="btn_begin">开始制作</string>
     <string name="btn_merger">合成</string>
     <string name="btn_sure">确定</string>
     
     <string name="music">音乐</string>
     
+    <string name="setting_image_duration">画面展示时长：</string>
+    <string name="setting_music_duration">音乐播放时长：</string>
+    <string name="setting_img_end">画面展示完毕终止输出</string>
+    <string name="setting_music_end">画面循环展示知道音乐播放结束</string>
+    <string name="setting_file_name">文件名</string>
+    <string name="setting_output_path">输出目录（默认目录是安装目录）</string>
+    <string name="setting_output_file">输出文件</string>
+    <string name="setting_output_way">输出方式</string>
+    <string name="setting_output_mode">输出模式</string>
     
 
 </resources>

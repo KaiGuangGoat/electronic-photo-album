@@ -27,7 +27,7 @@
         <activity android:name="com.example.picturereader.ui.GalleryViewActivity"/>
         <activity android:name="com.example.picturereader.ui.MainLayoutActivity"/>
         <activity android:name="com.example.picturereader.ui.MusicSelectorActivity"/>
-        
+        <activity android:name="com.example.picturereader.ui.MergerSettingActivity"/>
         <service android:name="com.example.picturereader.service.MusicPlayerService"/>
     </application>
 

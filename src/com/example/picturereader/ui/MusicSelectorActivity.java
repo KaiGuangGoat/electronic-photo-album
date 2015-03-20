@@ -11,26 +11,28 @@ import android.widget.ListView;
 
 import com.example.picturereader.R;
 import com.example.picturereader.adapter.MusicSelectorAdapter;
+import com.example.picturereader.adapter.MusicSelectorAdapter.MusicCheckBoxListener;
 import com.example.picturereader.adapter.PictureSelectorAdapter.CheckBoxListener;
+import com.example.picturereader.entity.MusicEntity;
 import com.example.picturereader.util.Constant;
 import com.example.picturereader.util.MediaResolve;
 import com.example.picturereader.util.Singleton;
 import com.example.picturereader.util.UIHelper;
 
-public class MusicSelectorActivity extends BaseActivity implements CheckBoxListener{
+public class MusicSelectorActivity extends BaseActivity implements MusicCheckBoxListener{
 
 	private ListView musicListView;
 	
 	private MusicSelectorAdapter adapter;
 	
-	private ArrayList<String> hadSelectedMusic;
+	private ArrayList<MusicEntity> hadSelectedMusic;
 	
 	private Handler handler;
 	
 	@Override
 	protected void init() {
 		setContentView(R.layout.music_selector);
-		hadSelectedMusic = new ArrayList<String>();
+		hadSelectedMusic = new ArrayList<MusicEntity>();
 		initHandler();
 		getAllMusic();
 		initView();
@@ -68,14 +70,17 @@ public class MusicSelectorActivity extends BaseActivity implements CheckBoxListe
 		finish();
 	}
 
+
 	@Override
-	public void onChecked(String imgFilePath, int selectedNum) {
-		hadSelectedMusic.add(imgFilePath);
+	public void onChecked(MusicEntity musicEntity, int selectedNum) {
+		// TODO Auto-generated method stub
+		hadSelectedMusic.add(musicEntity);
 	}
 
 	@Override
-	public void onCheckedCancle(String imgFilePath, int selectedNum) {
-		hadSelectedMusic.remove(imgFilePath);
+	public void onCheckedCancle(MusicEntity musicEntity, int selectedNum) {
+		// TODO Auto-generated method stub
+		hadSelectedMusic.remove(musicEntity);
 	}
 
 }

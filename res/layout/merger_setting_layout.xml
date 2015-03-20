@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/tv_img_duration"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/setting_image_duration" />
+
+        <TextView
+            android:id="@+id/tv_music_duration"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/setting_music_duration" />
+
+        <include layout="@layout/line" />
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/tv_output_way"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/setting_output_way" />
+
+            <RadioGroup
+                android:id="@+id/rg_end_mode"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+
+                <RadioButton
+                    android:id="@+id/rb_img_end"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:checked="true"
+                    android:text="@string/setting_img_end" />
+
+                <RadioButton
+                    android:id="@+id/rb_music_end"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/setting_music_end" />
+            </RadioGroup>
+        </LinearLayout>
+
+        <include layout="@layout/line" />
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/tv_output_mode"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/setting_output_mode" />
+
+            <Spinner
+                android:id="@+id/sp_select_mode"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+        <include layout="@layout/line" />
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/tv_output_file"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/setting_output_file" />
+
+            <EditText
+                android:id="@+id/et_file_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dip"
+                android:layout_marginRight="10dip"
+                android:hint="@string/setting_file_name" />
+
+            <EditText
+                android:id="@+id/et_output_path"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dip"
+                android:layout_marginRight="10dip"
+                android:hint="@string/setting_output_path" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content" >
+
+            <Button
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="cancle"
+                android:text="@string/btn_cancle" />
+
+            <Button
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="begin"
+                android:text="@string/btn_begin" />
+        </LinearLayout>
+    </LinearLayout>
+
+</ScrollView>

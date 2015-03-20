@@ -4,7 +4,7 @@ import java.io.File;
 import java.util.List;
 
 import com.example.picturereader.R;
-import com.example.picturereader.adapter.PictureSelectorAdapter.CheckBoxListener;
+import com.example.picturereader.entity.MusicEntity;
 
 import android.content.Context;
 import android.view.View;
@@ -16,14 +16,14 @@ import android.widget.TextView;
 
 public class MusicSelectorAdapter extends MyBaseAdapter{
 	
-	private CheckBoxListener listener;
+	private MusicCheckBoxListener listener;
 	private int selectedNum = 0;
 
-	public MusicSelectorAdapter(List<String> dataList, Context context) {
+	public MusicSelectorAdapter(List<MusicEntity> dataList, Context context) {
 		super(dataList, context);
 	}
 	
-	public void setCheckBoxListener(CheckBoxListener listener){
+	public void setCheckBoxListener(MusicCheckBoxListener listener){
 		this.listener = listener;
 	}
 
@@ -42,11 +42,11 @@ public class MusicSelectorAdapter extends MyBaseAdapter{
 
 	@Override
 	protected void setContentView(int position, BaseViewHolder baseViewHolder) {
-		String musicPath = dataList.get(position).toString();
+		MusicEntity music = (MusicEntity) dataList.get(position);
 		ViewHolder viewHolder = (ViewHolder) baseViewHolder;
-		viewHolder.textView.setText(new File(musicPath).getName());
+		viewHolder.textView.setText(new File(music.getMusicPath()).getName());
 		setTextView(viewHolder.textView, viewHolder.checkBox);
-		setCheckBox(viewHolder.checkBox,musicPath);
+		setCheckBox(viewHolder.checkBox,music);
 		
 	}
 	
@@ -60,7 +60,7 @@ public class MusicSelectorAdapter extends MyBaseAdapter{
 		});
 	}
 	
-	private void setCheckBox(CheckBox checkBox,final String musicPath){
+	private void setCheckBox(CheckBox checkBox,final MusicEntity musicEntity){
 		checkBox.setOnCheckedChangeListener(new OnCheckedChangeListener() {
 			
 			@Override
@@ -69,13 +69,13 @@ public class MusicSelectorAdapter extends MyBaseAdapter{
 					return;
 				if(isChecked){
 					selectedNum++;
-					listener.onChecked(musicPath, selectedNum);
+					listener.onChecked(musicEntity, selectedNum);
 				}else{
 					selectedNum--;
 					if(selectedNum < 0){
 						selectedNum = 0;
 					}
-					listener.onCheckedCancle(musicPath, selectedNum);
+					listener.onCheckedCancle(musicEntity, selectedNum);
 				}
 				
 			}
@@ -85,6 +85,11 @@ public class MusicSelectorAdapter extends MyBaseAdapter{
 	static class ViewHolder extends BaseViewHolder{
 		TextView textView;
 		CheckBox checkBox;
+	}
+	
+	public interface MusicCheckBoxListener{
+		public void onChecked(MusicEntity musicEntity,int selectedNum);
+		public void onCheckedCancle(MusicEntity musicEntity,int selectedNum);
 	}
 
 }

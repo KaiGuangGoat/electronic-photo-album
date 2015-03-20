@@ -14,6 +14,7 @@ import com.example.picturereader.R;
 import com.example.picturereader.adapter.GridViewShowPicAdapter;
 import com.example.picturereader.adapter.ListViewShowMusicAdapter;
 import com.example.picturereader.adapter.MusicSelectorAdapter;
+import com.example.picturereader.entity.MusicEntity;
 import com.example.picturereader.util.Constant;
 import com.example.picturereader.util.UIHelper;
 
@@ -30,13 +31,13 @@ public class MainLayoutActivity extends BaseActivity implements OnClickListener{
 	private ListViewShowMusicAdapter showMusicAdapter;
 	
 	private ArrayList<String> imgSelectedList;
-	private ArrayList<String> musicSelectList;
+	private ArrayList<MusicEntity> musicSelectList;
 
 	@Override
 	protected void init() {
 		setContentView(R.layout.main);
 		imgSelectedList = new ArrayList<String>();
-		musicSelectList = new ArrayList<String>();
+		musicSelectList = new ArrayList<MusicEntity>();
 		initView();
 		
 		
@@ -74,10 +75,10 @@ public class MainLayoutActivity extends BaseActivity implements OnClickListener{
 				}
 				gvShowPicture.setAdapter(showPicAdapter);
 			}else if(requestCode == Constant.FOR_RESULT_SELECT_MUSIC){
-				ArrayList<String> musicList = data.getStringArrayListExtra(Constant.SELECTED_MUSIC_LIST);
-				for(String music:musicList){
+				ArrayList<MusicEntity> musicList = data.getParcelableArrayListExtra(Constant.SELECTED_MUSIC_LIST);
+				for(MusicEntity music:musicList){
 					if(!musicSelectList.contains(music)){
-						musicSelectList.add(new File(music).getName());
+						musicSelectList.add(music);
 					}
 				}
 				lvShowMusic.setAdapter(showMusicAdapter);
@@ -99,7 +100,10 @@ public class MainLayoutActivity extends BaseActivity implements OnClickListener{
 			break;
 			
 		case R.id.btn_merger_video:
-			
+			Intent intent = new Intent(this,MergerSettingActivity.class);
+			intent.putExtra(Constant.SELECTED_IMG_LIST, imgSelectedList);
+			intent.putExtra(Constant.SELECTED_MUSIC_LIST, musicSelectList);
+			startActivity(intent);
 			break;
 
 		default:

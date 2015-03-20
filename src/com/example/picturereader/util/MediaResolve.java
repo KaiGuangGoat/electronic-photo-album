@@ -2,15 +2,18 @@ package com.example.picturereader.util;
 
 import java.io.File;
 import java.io.FilenameFilter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 import com.example.picturereader.entity.FolderPath;
 import com.example.picturereader.entity.ImageFolder;
+import com.example.picturereader.entity.MusicEntity;
 
 import android.content.ContentResolver;
 import android.content.Context;
 import android.database.Cursor;
+import android.media.MediaPlayer;
 import android.net.Uri;
 import android.provider.MediaStore;
 import android.provider.MediaStore.Images.Media;
@@ -81,23 +84,30 @@ public class MediaResolve {
 		if(Singleton.getInstance().getMusicList() != null){
 			return;
 		}
-		List<String> musicList = new ArrayList<String> ();
+		List<MusicEntity> musicList = new ArrayList<MusicEntity> ();
 		 Cursor cursor = context.getContentResolver().query(MediaStore.Audio.Media.EXTERNAL_CONTENT_URI,
                  null, null, null, MediaStore.Audio.Media.DEFAULT_SORT_ORDER);
 		  cursor.moveToFirst();
           int counter = cursor.getCount();
-          String title = cursor.getString(cursor.getColumnIndexOrThrow(MediaStore.Audio.Media.TITLE));
-          Log.d("MediaResolve", "music: "+title);
-          musicList.add(title);
+          MusicEntity musicEntity = new MusicEntity();
+          String title = cursor.getString(cursor.getColumnIndexOrThrow(MediaStore.Audio.Media.DATA));
+          long duration = cursor.getLong(cursor.getColumnIndexOrThrow(MediaStore.Audio.Media.DURATION));
+          musicEntity.setMusicPath(title);
+          musicEntity.setDuration(duration);
+          musicList.add(musicEntity);
           for(int j = 0 ; j < counter; j++){
-             String musicTitle = cursor.getString(cursor.getColumnIndex(MediaStore.Audio.Media.TITLE));
-             musicList.add(musicTitle);
+        	  MusicEntity muscEntity = new MusicEntity();
+             String musicTitle = cursor.getString(cursor.getColumnIndex(MediaStore.Audio.Media.DATA));
+             long duratio = cursor.getLong(cursor.getColumnIndexOrThrow(MediaStore.Audio.Media.DURATION));
+             muscEntity.setMusicPath(musicTitle);
+             muscEntity.setDuration(duratio);
+             musicList.add(muscEntity);
              cursor.moveToNext();
-             Log.d("MediaResolve", "music: "+musicTitle);
           }
           Singleton.getInstance().setMusicList(musicList);
           cursor.close();
 	}
+	
 	
 	public static void getVideo(Context context){
 		
