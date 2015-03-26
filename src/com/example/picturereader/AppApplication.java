@@ -1,5 +1,7 @@
 package com.example.picturereader;
 
+import java.io.File;
+
 import android.app.Application;
 import android.content.Context;
 import android.content.Intent;
@@ -7,6 +9,7 @@ import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.os.Environment;
 import android.provider.MediaStore;
 import android.util.DisplayMetrics;
 import android.view.View;
@@ -27,6 +30,8 @@ public class AppApplication extends Application{
 	public final int MARGIN_BOTTON = 2;
 	public final int MARGIN_LEFT = 3;
 	public final int MARGIN_RIGHT = 4;
+	
+	private String IMG_MUSIC_TEMP_PATH = "temp";
 	
 	@Override
 	public void onCreate() {
@@ -203,6 +208,14 @@ public class AppApplication extends Application{
 		Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
 		intent.setType("image/*");
 		return intent;
+	}
+	
+	public String getSDCardDir(){
+		return Environment.getExternalStorageDirectory().getAbsolutePath();
+	}
+	
+	public String getTempDir(){
+		return getSDCardDir()+File.separator+"PictureReader"+File.separator+IMG_MUSIC_TEMP_PATH;
 	}
 	
 	

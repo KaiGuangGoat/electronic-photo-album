@@ -69,5 +69,14 @@ public class FileUtil {
 		});
 		return Arrays.asList(files);
 	}
+	
+	public static void deleteFiles(File parentPath){
+		if(!parentPath.exists()){
+			return;
+		}
+		for(File file:parentPath.listFiles()){
+			file.delete();
+		}
+	}
 
 }
